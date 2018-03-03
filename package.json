@@ -1,0 +1,30 @@
+{
+  "name": "szygulp-template",
+  "version": "1.0.0",
+  "description": "a gulp project",
+  "main": "index.js",
+  "scripts": {
+    "dev": "gulp dev",
+    "build": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ztjy-fe/szygulp-template.git"
+  },
+  "author": "ztjy-fe<zhangzhenglong@szy.cn>",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^7.1.6",
+    "del": "^3.0.0",
+    "gulp": "^3.8.11",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-postcss": "^7.0.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-usemin": "^0.3.28",
+    "postcss-color-rgba-fallback": "^3.0.0",
+    "postcss-opacity": "^5.0.0",
+    "postcss-pseudoelements": "^5.0.0",
+    "precss": "^2.0.0"
+  }
+}
