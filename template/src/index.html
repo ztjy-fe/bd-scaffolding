@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>A Gulp Template</title>
+	{{#if_eq type "mobile"}}
+	<!--微信JS-SDK start-->
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	<script>
+		//WeiXin share
+		wx.config({
+		    debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+		    appId: '', // 必填，企业号的唯一标识，此处填写企业号corpid
+		    timestamp: , // 必填，生成签名的时间戳
+		    nonceStr: '', // 必填，生成签名的随机串
+		    signature: '',// 必填，签名，见附录1
+		    jsApiList: [] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+		});
+		wx.ready(()=>{
+			var shareData = {
+				title: '',
+				desc: '',
+				imgUrl: '',
+				success: function() {
+					   
+				},
+				cancel: function () {
+
+				}
+			};
+			wx.onMenuShareAppMessage(shareData);
+			wx.onMenuShareTimeline(shareData);
+			wx.onMenuShareQQ(shareData);
+			wx.onMenuShareQZone(shareData);
+			wx.onMenuShareWeibo(shareData);
+		});
+	</script>
+	<!--微信JS-SDK end-->
+
+	<!--MobLink start-->
+	<script src="//f.moblink.mob.com/3.0.1/moblink.js?appkey=请替换你自己的AppKey"></script>
+	<script>
+	/*
+	* MobLink 支持数组=>MobLink([...]) 和对象=>MobLink({...}) 两种初始化形式
+	* 页面上有多个元素需要跳转时使用数组方式,仅单个元素需要跳转时可以使用对象的方式进行初始化
+	* el: 表示网页上Element的id值,该字段为空或者不写则表示MobLink默认浮层上的打开按钮(注意:必须为元素id,以#开头)
+	* path: 对应App里的路径
+	* params: 网页需要带给客户端的参数
+	*/
+	// 单元素初始化方式
+	MobLink({
+	 el: '',
+	 path: 'demo/a',
+	 params: {
+	     key1: 'value1',
+	     key2: 'value2',
+	 }
+	})
+	// 多元素初始化方式
+	MobLink([
+	 {
+	     el: '',
+	     path: 'demo/a',
+	     params: {
+	         key1: 'value1',
+	         key2: 'value2',
+	     }
+	 },
+	 {
+	     el: '#openAppBtn1',
+	     path: 'demo/b',
+	     params: {
+	         key1: 'value1',
+	         key2: 'value2',
+	     }
+	 },
+	 {
+	     el: '#openAppBtn2',
+	     path: 'demo/c',
+	     params: {
+	         key1: 'value1',
+	         key2: 'value2',
+	     }
+	 }
+	]);
+	</script>
+	<!--MobLink end-->
+	{{/if_eq}}
+
+	<!-- build:css css/index.min.css -->
+	<link rel="stylesheet" href="css/index.css?rev=@@hash">
+	<!-- endbuild -->
+
+</head>
+<body>
+	<div class="wrapper">
+		<img class="avatar" src="./images/avatar.png">
+	</div>
+	<!-- build:js scripts/index.min.js -->
+	{{#if_eq type "pc"}}
+	<script src="scripts/jquery-1.12.4.min.js"></script>
+	{{/if_eq}}
+	{{#if_eq type "mobile"}}
+	<script src="scripts/zepto-1.2.0.min.js"></script>
+	{{/if_eq}}
+	<script src="scripts/index.js?rev=@@hash"></script>
+	<!-- endbuild -->
+	
+</body>
+</html>
