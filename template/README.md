@@ -1,6 +1,6 @@
 # szygulp-template
 
-> A minimal gulp template for pc project
+> A minimal gulp template for pc & mobile project
 
 ## Build Setup
 
@@ -8,9 +8,6 @@
 
 # vue-cli init
 vue init ztjy-fe/szygulp-template project-name
-
-# Clone project
-git clone https://github.com/ztjy-fe/szygulp-template.git
 
 # Install dependencies
 npm install

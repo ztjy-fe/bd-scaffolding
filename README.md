@@ -1,6 +1,6 @@
 # szygulp-template
 
-> A minimal vue admin template with Element UI & axios & permission control & lint
+> A minimal gulp template for pc & mobile project
 
 ## Build Setup
 
@@ -8,7 +8,6 @@
 
 # vue-cli init
 vue init ztjy-fe/szygulp-template project-name
-
 
 # Install dependencies
 npm install
