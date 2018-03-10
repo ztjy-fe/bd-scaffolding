@@ -1,4 +1,4 @@
-# szygulp-template
+# pc-scaffolding
 
 > A minimal gulp template for pc & mobile project
 
@@ -7,7 +7,7 @@
 ``` bash
 
 # vue-cli init
-vue init ztjy-fe/szygulp-template project-name
+vue init ztjy-fe/pc-scaffolding project-name
 
 # Install dependencies
 
