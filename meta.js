@@ -46,5 +46,5 @@ module.exports = {
     "src/script/jquery-1.12.4.min.js": "type === 'pc'",
     "src/script/zepto-1.2.0.min.js": "type === 'mobile'",
   },
-  "completeMessage": "To get started:\n\n  {{^inPlace}}cd {{destDirName}}\n  {{/inPlace}}npm install\n  npm run dev\n\nDocumentation can be found at https://github.com/ztjy-fe/szyadmin-template"
+  "completeMessage": "To get started:\n\n  cd {{destDirName}}\n  npm install\n  npm run dev\n\nDocumentation can be found at https://github.com/ztjy-fe/pc-scaffolding"
 };
