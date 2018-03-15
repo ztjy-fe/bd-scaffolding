@@ -13,29 +13,29 @@ module.exports = {
     "name": {
       "type": "string",
       "required": true,
-      "message": "Project name"
+      "message": "项目名称"
     },
     "description": {
       "type": "string",
       "required": false,
-      "message": "Project description",
+      "message": "项目描述",
       "default": "A Common Gulp project"
     },
     "author": {
       "type": "string",
-      "message": "Author"
+      "message": "作者"
     },
     "type": {
       "type": "list",
-      "message": "select type for your project",
+      "message": "请选择项目类型",
       "choices": [
         {
-          "name": "A PC project form common usage",
+          "name": "PC端（jquery-1.12.4）",
           "value": "pc",
           "short": "pc"
         },
         {
-          "name": "A Mobile project with WeiXin JS-SDK and Moblink",
+          "name": "移动端（集成微信JS-SDK、Moblink.js）",
           "value": "mobile",
           "short": "mobile"
         }

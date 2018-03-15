@@ -3,6 +3,17 @@
 <head>
 	<meta charset="UTF-8">
 	<title>A Gulp Template</title>
+
+	<!-- build:css css/index.min.css -->
+	<link rel="stylesheet" href="css/index.css?rev=@@hash">
+	<!-- endbuild -->
+
+</head>
+<body>
+	<div class="wrapper">
+		<img class="avatar" src="./images/avatar.png">
+	</div>
+
 	{{#if_eq type "mobile"}}
 	<!-- 微信JS-SDK start -->
 	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
@@ -38,7 +49,7 @@
 	<!-- 微信JS-SDK end -->
 
 	<!-- MobLink start -->
-	<script src="//f.moblink.mob.com/3.0.1/moblink.js?appkey=请替换你自己的AppKey"></script>
+	<script src="//f.moblink.mob.com/3.0.1/moblink.js?appkey='your appid'"></script>
 	<script>
 	/*
 	* MobLink 支持数组=>MobLink([...]) 和对象=>MobLink({...}) 两种初始化形式
@@ -87,15 +98,6 @@
 	<!-- MobLink end -->
 	{{/if_eq}}
 
-	<!-- build:css css/index.min.css -->
-	<link rel="stylesheet" href="css/index.css?rev=@@hash">
-	<!-- endbuild -->
-
-</head>
-<body>
-	<div class="wrapper">
-		<img class="avatar" src="./images/avatar.png">
-	</div>
 	<!-- build:js scripts/index.min.js -->
 	{{#if_eq type "pc"}}
 	<script src="scripts/jquery-1.12.4.min.js"></script>
