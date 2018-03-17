@@ -1,4 +1,4 @@
-# pc-scaffolding
+# bd-scaffolding
 
 > A minimal gulp template for pc & mobile project
 

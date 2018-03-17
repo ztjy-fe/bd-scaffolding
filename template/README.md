@@ -1,13 +1,15 @@
-# pc-scaffolding
+# bd-scaffolding
 
 > A minimal gulp template for pc & mobile project
 
 ## Build Setup
 
 ``` bash
+# szy-cli install
+npm install -g szy-cli
 
-# vue-cli init
-vue init ztjy-fe/pc-scaffolding project-name
+# szy-cli create
+szy create project-name
 
 # Install dependencies
 

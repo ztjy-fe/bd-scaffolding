@@ -25,13 +25,7 @@ gulp.task('cssmin', function() {
     ];
     return gulp.src('src/css/*.css')
         .pipe(postcss(postcssPlugins))
-        .pipe(gulp.dest('./dist/css/'));
-});
-
-//拷贝js
-gulp.task('copyjs', function() {
-    gulp.src('src/scripts/*.js')
-        .pipe(gulp.dest('dist/scripts'));
+        .pipe(gulp.dest('./src/css/'));
 });
 
 //拷贝图片
@@ -61,7 +55,6 @@ var cssOptions = {
     advanced: false, //类型：Boolean 默认：true [是否开启高级优化（合并选择器等）]
     compatibility: 'ie7', //保留ie7及以下兼容写法 类型：String 默认：''or'*' [启用兼容模式； 'ie7'：IE7兼容模式，'ie8'：IE8兼容模式，'*'：IE9+兼容模式]
     keepSpecialComments: '*' //保留所有特殊前缀 当你用autoprefixer生成的浏览器前缀，如果不加这个参数，有可能将会删除你的部分前缀
-
 };
 var jsOptions = {
     ie8: true
@@ -86,14 +79,6 @@ gulp.task('clean', function(cb) {
     return del(['./dist'], cb);
 });
 
-gulp.task('watch', function() {
-    gulp.watch('src/css/*.css', ['cssmin']);
-});
-
-gulp.task('dev', function() {
-    gulp.start('watch');
-});
-
 gulp.task('default', ['clean'], function() {
-    gulp.start('copyfont', 'copyimages', 'minifyhtml');
+    gulp.start('cssmin', 'copyfont', 'copyimages', 'minifyhtml');
 });
