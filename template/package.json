@@ -25,6 +25,7 @@
     "postcss-color-rgba-fallback": "^3.0.0",
     "postcss-opacity": "^5.0.0",
     "postcss-pseudoelements": "^5.0.0",
+    "postcss-px2rem": "^0.3.0",
     "precss": "^2.0.0"
   }
 }

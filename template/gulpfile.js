@@ -9,6 +9,7 @@ var gulp = require('gulp'),
     autoprefixer = require('autoprefixer'),
     htmlmin = require('gulp-htmlmin'),
     usemin = require('gulp-usemin'),
+    px2rem = require('postcss-px2rem'),
     del = require('del');
 
 //压缩css
@@ -18,11 +19,13 @@ gulp.task('cssmin', function() {
             browsers: 'last 6 versions',
             cascade: false
         }),
+        px2rem({remUnit: 75}),
         precss,
         colorRgbaFallback,
         opacity,
         pseudoelements
     ];
+
     return gulp.src('src/css/*.css')
         .pipe(postcss(postcssPlugins))
         .pipe(gulp.dest('./src/css/'));
@@ -77,6 +80,12 @@ gulp.task('minifyhtml', function() {
 
 gulp.task('clean', function(cb) {
     return del(['./dist'], cb);
+});
+
+gulp.task('dev', function(cb) {
+    gulp.watch('src/css/*.css',['test'], function(event){
+        console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+    });
 });
 
 gulp.task('default', ['clean'], function() {
