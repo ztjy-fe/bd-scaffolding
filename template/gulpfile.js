@@ -31,6 +31,15 @@ gulp.task('cssmin', function() {
         .pipe(gulp.dest('./src/css/'));
 });
 
+gulp.task('px2rem', function() {
+    var processors = [
+        px2rem({remUnit: 75})
+    ];
+    return gulp.src('src/css/*.css')
+        .pipe(postcss(processors))
+        .pipe(gulp.dest('dist/css/'))
+});
+
 //拷贝图片
 gulp.task('copyimages', function() {
     return gulp.src('src/images/*')
@@ -83,7 +92,7 @@ gulp.task('clean', function(cb) {
 });
 
 gulp.task('dev', function(cb) {
-    gulp.watch('src/css/*.css',['test'], function(event){
+    gulp.watch('src/css/*.css',['px2rem'], function(event){
         console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
     });
 });
