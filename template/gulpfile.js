@@ -10,7 +10,8 @@ var gulp = require('gulp'),
     htmlmin = require('gulp-htmlmin'),
     usemin = require('gulp-usemin'),
     px2rem = require('postcss-px2rem'),
-    del = require('del');
+    del = require('del'),
+    runSequence = require('run-sequence');
 
 //压缩css
 gulp.task('cssmin', function() {
@@ -28,28 +29,13 @@ gulp.task('cssmin', function() {
 
     return gulp.src('src/css/*.css')
         .pipe(postcss(postcssPlugins))
-        .pipe(gulp.dest('./src/css/'));
-});
-
-gulp.task('px2rem', function() {
-    var processors = [
-        px2rem({remUnit: 75})
-    ];
-    return gulp.src('src/css/*.css')
-        .pipe(postcss(processors))
-        .pipe(gulp.dest('dist/css/'))
+        .pipe(gulp.dest('dist/css/'));
 });
 
 //拷贝图片
 gulp.task('copyimages', function() {
     return gulp.src('src/images/*')
         .pipe(gulp.dest('dist/images'))
-});
-
-//字体拷贝
-gulp.task('copyfont', function() {
-    return gulp.src('src/fonts/*')
-        .pipe(gulp.dest('dist/fonts'))
 });
 
 //压缩html，合并文件引用
@@ -92,11 +78,11 @@ gulp.task('clean', function(cb) {
 });
 
 gulp.task('dev', function(cb) {
-    gulp.watch('src/css/*.css',['px2rem'], function(event){
+    gulp.watch('src/css/*.css', ['cssmin', 'copyimages'], function(event){
         console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
     });
 });
 
 gulp.task('default', ['clean'], function() {
-    gulp.start('cssmin', 'copyfont', 'copyimages', 'minifyhtml');
+    runSequence('cssmin', ['copyimages', 'minifyhtml']);
 });
